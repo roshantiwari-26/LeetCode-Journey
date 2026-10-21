@@ -10,7 +10,7 @@ var lengthOfLongestSubstring = function (s) {
   for (let right = 0; right < s.length; right++) {
     while (charSet.has(s[right])) {
       charSet.delete(s[left]);
-      left++; // Left pointer ko aage badhao
+      left++;
     }
 
     charSet.add(s[right]);
