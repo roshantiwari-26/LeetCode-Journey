@@ -57,7 +57,6 @@ var findAnagrams = function (s, p) {
 
   let left = 0;
   for (let right = p.length; right < s.length; right++) {
-    // Naya character window ke andar aaya (right pointer)
     sCount[getIndex(s[right])]++;
 
     sCount[getIndex(s[left])]--;
