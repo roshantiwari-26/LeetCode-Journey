@@ -1,3 +1,4 @@
-while (pending.length !== 0) {
-  //     answer[pending.pop()] = 0;
+for (let i = 1; i < deck.length; i + 2) {
+  //     result[i] = sortedDeck[j];
+  //     j++;
   //   }
