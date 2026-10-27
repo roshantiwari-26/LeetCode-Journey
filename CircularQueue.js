@@ -1,4 +1,4 @@
-class CircularQueue {
+class MyCircularQueue {
   constructor(k) {
     this.queue = new Array(k);
     this.k = k;
@@ -6,9 +6,8 @@ class CircularQueue {
     this.rear = -1;
   }
 
-  enqueue(val) {
+  enQueue(val) {
     if ((this.rear + 1) % this.k === this.front) {
-      console.log("Queue is full");
       return false;
     }
 
@@ -21,13 +20,11 @@ class CircularQueue {
     return true;
   }
 
-  dequeue() {
+  deQueue() {
     if (this.front === -1) {
-      console.log("Queue is empty");
-      return null;
+      return false;
     }
 
-    let removedVal = this.queue[this.front];
     this.queue[this.front] = undefined;
 
     if (this.front === this.rear) {
@@ -37,14 +34,28 @@ class CircularQueue {
       this.front = (this.front + 1) % this.k;
     }
 
-    return removedVal;
+    return true;
   }
 
-  peek() {
+  Front() {
     if (this.front === -1) {
-      console.log("Queue is empty");
-      return null;
+      return -1;
     }
     return this.queue[this.front];
+  }
+
+  Rear() {
+    if (this.rear === -1) {
+      return -1;
+    }
+    return this.queue[this.rear];
+  }
+
+  isEmpty() {
+    return this.front === -1;
+  }
+
+  isFull() {
+    return (this.rear + 1) % this.k === this.front;
   }
 }
