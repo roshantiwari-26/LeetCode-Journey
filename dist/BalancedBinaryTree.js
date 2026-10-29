@@ -15,17 +15,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //   );
 // }
 function isBalanced(root) {
-    if (!root)
-        return true;
     function checkHeight(node) {
         if (!node)
             return 0;
-        return 1 + Math.max(checkHeight(node.left), checkHeight(node.right));
+        const leftHeight = checkHeight(node.left);
+        if (leftHeight === -1)
+            return -1;
+        const rightHeight = checkHeight(node.right);
+        if (rightHeight === -1)
+            return -1;
+        if (Math.abs(leftHeight - rightHeight) > 1) {
+            return -1;
+        }
+        return 1 + Math.max(leftHeight, rightHeight);
     }
-    const leftHeight = checkHeight(root.left);
-    const rightHeight = checkHeight(root.right);
-    return (Math.abs(leftHeight - rightHeight) <= 1 &&
-        isBalanced(root.left) &&
-        isBalanced(root.right));
+    return checkHeight(root) !== -1;
 }
 //# sourceMappingURL=BalancedBinaryTree.js.map
