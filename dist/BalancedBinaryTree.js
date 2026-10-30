@@ -31,4 +31,3 @@ function isBalanced(root) {
     }
     return checkHeight(root) !== -1;
 }
-//# sourceMappingURL=BalancedBinaryTree.js.map
